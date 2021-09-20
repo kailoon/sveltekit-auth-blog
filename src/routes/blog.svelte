@@ -23,7 +23,7 @@
 <div>
 	{#each articles as { title, id, body }}
 		<article>
-			<h3><a href={`/blog/${id}`}>{capitalize(title)}</a></h3>
+			<h3><a sveltekit:prefetch href={`/blog/${id}`}>{capitalize(title)}</a></h3>
 			<p>{body}</p>
 		</article>
 	{/each}
