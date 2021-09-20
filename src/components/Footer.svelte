@@ -4,8 +4,11 @@
 
 <footer>
 	<p>
-		{year}. Created by <a href="https://kailoon.com" title="visit site">kailoon</a>. View on
-		<a href="https://github.com/kailoon/sveltekit-auth-blog" title="view on github">Github</a>
+		{year}. Created by <a rel="external" href="https://kailoon.com" title="visit site">kailoon</a>.
+		View on
+		<a rel="external" href="https://github.com/kailoon/sveltekit-auth-blog" title="view on github"
+			>Github</a
+		>
 	</p>
 </footer>
 
