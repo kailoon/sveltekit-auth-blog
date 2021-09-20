@@ -1,16 +1,10 @@
 <script context="module">
 	import { session } from '$app/stores';
-	import { signOut as authSignOut } from 'sk-auth/client';
-
-	const signOut = () => {
-		authSignOut().then(session.set);
-	};
 </script>
 
 <nav>
 	<a href="/" class="branding">SvltKt Blog</a>
 	<ul>
-		<li><a href="/">Home</a></li>
 		<li><a href="/blog">Blog</a></li>
 		{#if $session?.user}
 			<li>
@@ -22,7 +16,6 @@
 					/>
 				</a>
 			</li>
-			<button on:click={signOut}>Sign Out</button>
 		{:else}
 			<li class="button"><a href="/api/auth/signin/google?redirect=/">Login with Google</a></li>
 		{/if}
@@ -31,13 +24,15 @@
 
 <style lang="scss">
 	nav {
-		padding: 40px 20px;
+		padding: 40px 0;
+		margin: 0 20px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid #f1f1f1;
 		a.branding {
 			text-decoration: none;
-			color: black;
+			color: var(--gray-light);
 			font-weight: 500;
 		}
 		ul {
@@ -78,9 +73,5 @@
 		overflow: hidden;
 		display: block;
 		margin-top: 2px;
-	}
-	button {
-		cursor: pointer;
-		padding: 4px 8px;
 	}
 </style>

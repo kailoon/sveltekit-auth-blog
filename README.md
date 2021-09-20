@@ -1,6 +1,6 @@
 # What is this?
 
-A SvelteKit Template using [sk-auth]('https://github.com/Dan6erbond/sk-auth) and configured for GoogleOAuth2Provider.
+A SvelteKit Template using [sk-auth]('https://github.com/Dan6erbond/sk-auth') and configured for GoogleOAuth2Provider.
 
 ### What's included
 

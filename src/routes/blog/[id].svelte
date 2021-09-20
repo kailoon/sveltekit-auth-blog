@@ -14,11 +14,17 @@
 	}
 </script>
 
-<script>
-	export let article;
+<script lang="typescript">
+	export let article: { title: any; body: any };
+	import { goto } from '$app/navigation';
+
+	const goBack = () => {
+		window.history.back();
+	};
 </script>
 
 {#if $session?.user}
+	<div><button on:click={goBack}>Back</button></div>
 	<article>
 		<h2>{article.title}</h2>
 		{@html article.body}
@@ -36,9 +42,13 @@
 		h2 {
 			color: var(--linkColor);
 			line-height: 1.1;
-			letter-spacing: -2px;
-			margin-bottom: 40px;
-			font-size: 70px;
+			letter-spacing: -1px;
+			margin-bottom: 20px;
+			font-size: 40px;
 		}
+	}
+	button {
+		padding: 4px 8px;
+		margin-bottom: 20px;
 	}
 </style>

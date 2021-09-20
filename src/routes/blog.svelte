@@ -3,32 +3,53 @@
 		const url = `https://jsonplaceholder.typicode.com/posts?_limit=20`;
 		const res = await fetch(url);
 		const articles = await res.json();
-
 		return {
 			props: { articles }
 		};
 	}
 </script>
 
-<script>
-	export let articles;
+<script lang="typescript">
+	export let articles: ArrayLike<{ title: any; id: any; body: any }>;
+
+	// captialize the titles
+	const capitalize = (sentence: string) => {
+		return sentence.replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase());
+	};
 </script>
 
-<h1>Blog Page</h1>
+<div class="page-title">Blog Page</div>
 <div>
-	{#each articles as article}
+	{#each articles as { title, id, body }}
 		<article>
-			<h3><a href={`/blog/${article.id}`}>{article.title}</a></h3>
-			<p>{article.body}</p>
+			<h3><a href={`/blog/${id}`}>{capitalize(title)}</a></h3>
+			<p>{body}</p>
 		</article>
 	{/each}
 </div>
 
 <style lang="scss">
+	.page-title {
+		opacity: 0.5;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
 	article {
 		margin: 20px 0;
+		padding: 20px 0;
+		border-bottom: 1px solid #f1f1f1;
 		h3 {
-			color: var(--linkColor);
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 1.3;
+			margin-bottom: 20px;
+			a {
+				color: var(--linkColor);
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 </style>
