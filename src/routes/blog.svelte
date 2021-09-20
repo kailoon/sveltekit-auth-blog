@@ -9,8 +9,9 @@
 	}
 </script>
 
-<script lang="typescript">
-	export let articles: ArrayLike<{ title: any; id: any; body: any }>;
+<script lang="ts">
+	import type { Article } from 'src/Types';
+	export let articles: Article[];
 
 	// captialize the titles
 	const capitalize = (sentence: string) => {

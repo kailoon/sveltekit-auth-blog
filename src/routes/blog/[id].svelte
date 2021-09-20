@@ -14,9 +14,11 @@
 	}
 </script>
 
-<script lang="typescript">
-	export let article: { title: any; body: any };
+<script lang="ts">
+	import type { Article } from 'src/Types';
 	import { goto } from '$app/navigation';
+
+	export let article: Article;
 
 	const goBack = () => {
 		window.history.back();
